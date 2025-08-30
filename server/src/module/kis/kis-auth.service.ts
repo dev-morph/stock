@@ -29,9 +29,11 @@ export class KisAuthService {
             { headers: { 'Content-Type': 'application/json' } },
         );
 
+        console.log("TOKEN ---> ", data?.access_token);
+        console.log("Data ---> ", data);
+
         this.accessToken = data?.access_token;
-        const expiresIn = Number(data?.expires_in ?? 3600);
-        this.expAt = dayjs().add(expiresIn, 'second').valueOf();
+
         return this.accessToken!;
     }
 }

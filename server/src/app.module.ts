@@ -1,3 +1,7 @@
+import { UserModule } from './module/user/user.module';
+import { AuthModule } from './module/auth/auth.module';
+import { AuthController } from './module/auth/auth.controller';
+import { KisAuthController } from './module/kis/kis-auth.controller';
 import { KisHttpService } from './module/kis/kis-http.service';
 import { KisAuthService } from './module/kis/kis-auth.service';
 import { KisModule } from './module/kis/kis.module';
@@ -10,6 +14,8 @@ import { createDatabaseConfig } from './database/database.config';
 
 @Module({
   imports: [
+    UserModule,
+    AuthModule,
     KisModule, ConfigModule.forRoot({
       isGlobal: true,
     }),
@@ -18,7 +24,8 @@ import { createDatabaseConfig } from './database/database.config';
       useFactory: (config: ConfigService) => createDatabaseConfig(config)
     })
   ],
-  controllers: [AppController],
+  controllers: [
+    AuthController, AppController],
   providers: [AppService],
 })
 export class AppModule { }
