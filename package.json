@@ -1,0 +1,13 @@
+{
+  "name": "stocks-monorepo",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"pnpm --filter front dev\" \"pnpm --filter server start:dev\"",
+    "build": "pnpm --filter front build && pnpm --filter server build",
+    "start": "concurrently \"pnpm --filter front start\" \"pnpm --filter server start:prod\"",
+    "test": "pnpm --filter front test && pnpm --filter server test"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
