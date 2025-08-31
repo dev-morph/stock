@@ -1,4 +1,3 @@
-
 import { CreateUser } from '@/app/ui/user/buttons';
 import { lusitana } from '@/app/ui/fonts';
 import { Suspense } from 'react';
